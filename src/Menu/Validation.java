@@ -1,3 +1,4 @@
+package Menu;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Validation {
@@ -52,7 +53,7 @@ public class Validation {
         }
     }
     
-    //check user input yes/ no
+    //check user input yes/ no. Return TRUE if Y
     public static boolean checkInputYN() {
         //loop until user input correct
         while (true) {
@@ -69,80 +70,45 @@ public class Validation {
             System.out.print("Enter again: ");
         }
     }
-
-    //check user input u / d
-    public static boolean checkInputUD() {
-        //loop until user input correct
-        while (true) {
-            String result = checkInputString();
-            //return true if user input u/U
-            if (result.equalsIgnoreCase("U")) {
-                return true;
-            }
-            //return false if user input d/D
-            if (result.equalsIgnoreCase("D")) {
-                return false;
-            }
-            System.err.println("Please input u/U or d/D.");
-            System.out.print("Enter again: ");
-        }
-    }
-
-    //check user input course
-    public static String checkInputGender() {
-        //loop until user input correct
-        while (true) {
-            String result = checkInputString();
-            //check input course in java/ .net/ c/c++
-            if (result.equalsIgnoreCase("F")
-                    || result.equalsIgnoreCase("FM"))
+    
+    //check doctor id exist, return TRUE if EXITS
+    public static boolean checkDoctorIdExist(ArrayList<Doctor> ls, int id, String name) {
+        for (Doctor doctor : ls) {
+            if ((id == doctor.getId())
+                    && name.equalsIgnoreCase(doctor.getName()))
             {
-                return result.toUpperCase();
-            }
-            System.err.println("There are only 2 gender valid: F, FM");
-            System.out.print("Enter again: ");
-        }
-    }
-
-    //check student exist
-    public static boolean checkStudentExist(ArrayList<Student> ls, int id,
-        String name, int age, String gender, String address) {
-        for (Student student : ls) {
-            if ((id == student.getId())
-                    && name.equalsIgnoreCase(student.getName())
-                    && gender.equalsIgnoreCase(student.getGender())
-                    && address.equalsIgnoreCase(student.getAddress())
-                    && age == student.getAge()) {
                 return false;
             }
         }
         return true;
     }
 
-
-
-    //check id and exist
-    public static boolean checkIdExist(ArrayList<Student> ls, int id, String name) {
-        for (Student student : ls) {
-            if (id == student.getId()
-                    && !name.equalsIgnoreCase(student.getName())) {
+    //check Nurse id exist, return TRUE if EXITS
+    public static boolean checkIdExist(ArrayList<Nurse> ls, int id, String name) {
+        for (Nurse nurse : ls) {
+            if (id == nurse.getId()
+                    && !name.equalsIgnoreCase(nurse.getName())) {
                 return false;
             }
         }
         return true;
     }
 
-    //check user change or not
-    public static boolean checkChangeInfomation(Student student, int id,
-        String name, int age, String gender, String address) {
-        if (id == student.getId()
-                && age == student.getAge()
-                && name.equalsIgnoreCase(student.getName())
-                && address.equalsIgnoreCase(student.getAddress())
-                && gender.equalsIgnoreCase(student.getGender())) {
+    //check valid of email format, return true if valid "abc@mail.com" false if ".asds@sfd"
+    public boolean checkEmailFormat(String email) {
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+        java.util.regex.Matcher m = p.matcher(email);
+        return m.matches();
+    }
+
+    //check if phone number is 10 num or not, return TRUE if phone number 1 000 000 000 - 9 999 999 999
+    public static boolean checkPhoneAmount(long num){
+        if (num <1000000000 || num > 9999999999){
             return false;
+        } else{
+            return true;
         }
-        return true;
     }
 
 }
