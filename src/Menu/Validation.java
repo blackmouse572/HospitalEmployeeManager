@@ -1,6 +1,7 @@
 package Menu;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 public class Validation {
 
     private final static Scanner in = new Scanner(System.in);
@@ -103,12 +104,19 @@ public class Validation {
     }
 
     //check if phone number is 10 num or not, return TRUE if phone number 1 000 000 000 - 9 999 999 999
-    public static boolean checkPhoneAmount(long num){
-        if (num <1000000000 || num > 9999999999){
-            return false;
-        } else{
-            return true;
-        }
+    public static boolean checkPhoneAmount(String phone){
+        System.out.println("Format of phone number: +xx xx xxx-xxxx");
+        System.out.println("(Example: +84 35 3552-5568)");
+        String regexPhone = "^(\\+\\d{1,3}( )?)?((\\(\\d{1,3}\\))|\\d{1,3})[- .]?\\d{3,4}[- .]?\\d{4}$";
+        /* 
+            ^: Start of expression
+            (\\+\\d{1,3}()?)?: match country code between 1-3 digits prefixed with '+' symbol, followed by space or no space
+            ((\\(\\d{1,3}\\))|\\d{1,3}): is mandatory group of 1-3 digits with or without parenthesus followed by hyphen, space or no space
+            \\d{3,4}[-.]?: is mandatory group of 3 or 4 digits followed by hyphen, space or no space
+            \\d{4}: is mandatory group of last 4 digits
+            $: end of expression
+        */
+        return Pattern.matches(regexPhone, phone);
     }
 
 }
