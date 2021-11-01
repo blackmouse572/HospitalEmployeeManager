@@ -1,4 +1,5 @@
 package Menu;
+import Employee.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -73,7 +74,7 @@ public class Validation {
     }
     
     //check doctor id exist, return TRUE if EXITS
-    public static boolean checkDoctorIdExist(ArrayList<Doctor> ls, int id, String name) {
+    public static boolean checkDoctorIdExist(ArrayList<Doctor> ls, String id, String name) {
         for (Doctor doctor : ls) {
             if ((id == doctor.getId())
                     && name.equalsIgnoreCase(doctor.getName()))
@@ -85,7 +86,7 @@ public class Validation {
     }
 
     //check Nurse id exist, return TRUE if EXITS
-    public static boolean checkIdExist(ArrayList<Nurse> ls, int id, String name) {
+    public static boolean checkIdExist(ArrayList<Nurse> ls, String id, String name) {
         for (Nurse nurse : ls) {
             if (id == nurse.getId()
                     && !name.equalsIgnoreCase(nurse.getName())) {
