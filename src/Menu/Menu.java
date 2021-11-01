@@ -1,3 +1,6 @@
+package Menu;
+
+
 public class Menu {
     public static int getChoice(){
         System.out.println("--------Employee management---------");
@@ -7,6 +10,6 @@ public class Menu {
         System.out.println("4.Searh employee");
         System.out.println("5.Exit");
         System.out.print("Your choice: ");
-        return Validation.checkInputLimit(1,5);
+        return Validation.checkInputIntLimit(1,5);
     }
 }
