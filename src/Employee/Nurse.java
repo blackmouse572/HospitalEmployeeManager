@@ -10,18 +10,18 @@ public class Nurse extends Employee {
     // return total salary of nurse
     @Override
     double calSalary() {
-        double nurseSalary = (coeffSalary * 1650000) + overtimeHours * 200000;
+        double nurseSalary = (coefficient * 1650000) + overtimeHours * 200000;
         return nurseSalary;
     }
     
     // coeffSalary is float, not int
-    public Nurse( int id, String name, int phone, String email, 
-                int coeffSalary, String department, int overtimeHours ) {
+    public Nurse( String id, String name, String phone, String email, 
+                int coefficient, String department, int overtimeHours ) {
         super.id = id;
         super.name = name;
         super.phone = phone;
         super.email = email;
-        super.coeffSalary = coeffSalary;
+        super.coefficient = coefficient;
         this.department = department;
         this.overtimeHours = overtimeHours;
     }
@@ -30,7 +30,7 @@ public class Nurse extends Employee {
         super();
     }
     
-    public int getID() {
+    public String getID() {
         return id;
     }
     
@@ -38,7 +38,7 @@ public class Nurse extends Employee {
         return name;
     }
     
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
     
@@ -46,8 +46,8 @@ public class Nurse extends Employee {
         return email;
     }
     
-    public int getCoeffSalary() {
-        return super.coeffSalary;
+    public double getCoeffSalary() {
+        return super.coefficient;
     }
     
     public String getDepartment() {
@@ -59,9 +59,8 @@ public class Nurse extends Employee {
     }
     
     // input method
-    @Override
     public void input() {
-        super.input();
+//        super.input();
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Input department: ");
@@ -72,8 +71,8 @@ public class Nurse extends Employee {
     }
     
     // print
-    public void print() {
-        super.print();
+    public void display() {
+        super.display();
         System.out.println( "Department is: " + this.department );
         System.out.println( "Overtime hours: " + this.overtimeHours );
         System.out.println( "Total salary: " + calSalary() );
