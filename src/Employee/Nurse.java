@@ -58,18 +58,6 @@ public class Nurse extends Employee {
         return this.overtimeHours;
     }
     
-    // input method
-    public void input() {
-//        super.input();
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("Input department: ");
-        this.department = sc.next();
-        
-        System.out.println("Input overtime hours: ");
-        this.overtimeHours = sc.nextInt();
-    }
-    
     // print
     public void display() {
         super.display();
