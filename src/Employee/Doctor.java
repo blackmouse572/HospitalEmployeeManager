@@ -40,8 +40,8 @@ public class Doctor extends Employee {
     @Override
     public void display() {
         super.display();
-        System.out.printf("%-10s",level);
-        System.out.printf("%-4d",major);
-        System.out.printf("%-4d",positionAllowance);
+        System.out.printf("%-10s",this.level);
+        System.out.printf("%-4d",this.major);
+        System.out.printf("%-4d",this.positionAllowance);
     }
 }
