@@ -1,6 +1,5 @@
 package Employee;
 
-import java.util.Scanner;
 
 public class Nurse extends Employee {
     
@@ -10,14 +9,13 @@ public class Nurse extends Employee {
     // return total salary of nurse
     @Override
     double calSalary() {
-        double nurseSalary = (coefficient * 1650000) + overtimeHours * 200000;
-        return nurseSalary;
+        return super.getCoefficient() * 1650000 + overtimeHours * 200000;
+
     }
     
     // coeffSalary is float, not int
-    public Nurse( String id, String name, String phone, String email, 
-                int coefficient, String department, int overtimeHours ) {
-        super.employee(id, name, phone, email, coefficient);
+    public Nurse( String id, String name, String phone, String email, float coefficient, String department, int overtimeHours ) {
+        super(id, name, 1, phone, email, coefficient);
         this.department = department;
         this.overtimeHours = overtimeHours;
     }
@@ -26,24 +24,24 @@ public class Nurse extends Employee {
         super();
     }
     
-    public String getID() {
-        return id;
+    public String getId() {
+        return super.getId();
     }
     
     public String getName() {
-        return name;
+        return super.getName();
     }
     
     public String getPhone() {
-        return phone;
+        return super.getPhone();
     }
     
     public String getEmail() {
-        return email;
+        return super.getEmail();
     }
     
-    public double getCoeffSalary() {
-        return super.coefficient;
+    public float getCoefficient() {
+        return super.getCoefficient();
     }
     
     public String getDepartment() {
@@ -57,8 +55,6 @@ public class Nurse extends Employee {
     // print
     public void display() {
         super.display();
-        System.out.println( "Department is: " + this.department );
-        System.out.println( "Overtime hours: " + this.overtimeHours );
-        System.out.println( "Total salary: " + calSalary() );
+        System.out.printf("%-15s%-12d%-10f\n",this.department,this.overtimeHours,this.calSalary());
     }
 }
