@@ -74,30 +74,45 @@ public class Validation {
     }
     
     //check doctor id exist, return TRUE if EXITS
-    public static boolean checkDoctorIdExist(ArrayList<Doctor> ls, String id, String name) {
-        for (Doctor doctor : ls) {
-            if ((id == doctor.getId())
-                    && name.equalsIgnoreCase(doctor.getName()))
-            {
-                return false;
+    public static String checkDoctorIdExist(ArrayList<Doctor> ls) {
+        while(true){
+            boolean test = true;
+            String id = in.nextLine();
+            for (Doctor doctors: ls) {
+                if(doctors.getId().equals(id)){
+                    test = false;
+                    System.err.println("Invalid ID: ");
+                    System.out.print("Re-input ID: ");
+                    break;
+                }
+            }
+            if(test){
+                return id;
             }
         }
-        return true;
     }
 
     //check Nurse id exist, return TRUE if EXITS
-    public static boolean checkIdExist(ArrayList<Nurse> ls, String id, String name) {
-        for (Nurse nurse : ls) {
-            if (id == nurse.getId()
-                    && !name.equalsIgnoreCase(nurse.getName())) {
-                return false;
+    public static String checkNurseIdExist(ArrayList<Nurse> ls) {
+        while(true){
+            boolean test = true;
+            String id = in.nextLine();
+            for (Nurse nurse: ls) {
+                if(nurse.getId().equals(id)){
+                    test = false;
+                    System.err.println("Invalid ID: ");
+                    System.out.print("Re-input ID: ");
+                    break;
+                }
+            }
+            if(test){
+                return id;
             }
         }
-        return true;
     }
 
     //check valid of email format, return true if valid "abc@mail.com" false if ".asds@sfd"
-    public boolean checkEmailFormat(String email) {
+    public static boolean checkEmailFormat(String email) {
         String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
         java.util.regex.Matcher m = p.matcher(email);
