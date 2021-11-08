@@ -26,13 +26,13 @@ public class EmployeeManagement {
             email = sc.nextLine();
         }while(!Validation.checkEmailFormat(email));
         System.out.print("Input coefficient: ");
-        int coefficient = sc.nextInt();
+        int coefficient = Validation.checkInputInt();
         System.out.print("Input major: ");
         String major = Validation.checkInputString();
         System.out.print("Input level: ");
-        int level = sc.nextInt();
+        int level = Validation.checkInputInt();
         System.out.print("Input allowance: ");
-        int allowance = sc.nextInt();
+        int allowance = Validation.checkInputInt();
         sc.nextLine();
         doctors.add(new Doctor(id,name,phone,email,coefficient,major,level,allowance));
     }
@@ -53,11 +53,11 @@ public class EmployeeManagement {
             email = sc.nextLine();
         }while(!Validation.checkEmailFormat(email));
         System.out.println("Input coefficient: ");
-        int coefficient = sc.nextInt();
+        int coefficient = Validation.checkInputInt();
         System.out.print("Input department: ");
         String department = Validation.checkInputString();
         System.out.print("Input overtime: ");
-        int overtime = sc.nextInt();
+        int overtime = Validation.checkInputInt();
         sc.nextLine();
         nurses.add(new Nurse(id,name,phone,email,coefficient,department,overtime));
     }
