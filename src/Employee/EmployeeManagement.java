@@ -33,7 +33,6 @@ public class EmployeeManagement {
         int level = Validation.checkInputInt();
         System.out.print("Input allowance: ");
         int allowance = Validation.checkInputInt();
-        sc.nextLine();
         doctors.add(new Doctor(id,name,phone,email,coefficient,major,level,allowance));
     }
 
@@ -58,7 +57,6 @@ public class EmployeeManagement {
         String department = Validation.checkInputString();
         System.out.print("Input overtime: ");
         int overtime = Validation.checkInputInt();
-        sc.nextLine();
         nurses.add(new Nurse(id,name,phone,email,coefficient,department,overtime));
     }
 
