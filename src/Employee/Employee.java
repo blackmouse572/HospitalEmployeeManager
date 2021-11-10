@@ -1,16 +1,16 @@
 package Employee;
 
 abstract class Employee {
-    private String id;
-    private String name;
-    private String type;
-    private String phone;
-    private String email;
-    private double coefficient;
+    protected String id;
+    protected String name;
+    protected String type;
+    protected String phone;
+    protected String email;
+    protected float coefficient;
 
     public Employee(){}
     
-    public Employee(String id, String name, String type, String phone, String email, double coefficient){
+    public Employee(String id, String name, String type, String phone, String email, float coefficient){
         this.id = id;
         this.name = name;
         this.type = type;
@@ -58,9 +58,10 @@ abstract class Employee {
     public String getEmail(){
         return this.email;
     }
-    public void setCoefficient(double coefficient){
+    public void setCoefficient(float coefficient){
         this.coefficient = coefficient;
     }
-    public double getCoefficient(){
+    public float getCoefficient(){
         return this.coefficient;
     }
+}

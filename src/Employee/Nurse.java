@@ -15,7 +15,7 @@ public class Nurse extends Employee {
     
     // coeffSalary is float, not int
     public Nurse( String id, String name, String phone, String email, float coefficient, String department, int overtimeHours ) {
-        super(id, name, 1, phone, email, coefficient);
+        super(id, name, "1", phone, email, coefficient);
         this.department = department;
         this.overtimeHours = overtimeHours;
     }

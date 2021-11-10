@@ -13,7 +13,7 @@ public class Doctor extends Employee {
     }
     
     public Doctor( String id, String name,String phone, String email, float coefficient, String major, int level, int positionAllowance ) {
-       super(id, name, 1, phone, email, coefficient);
+        super(id, name, "1", phone, email, coefficient);
         this.major = major;
         this.level= level;
         this.positionAllowance = positionAllowance;
