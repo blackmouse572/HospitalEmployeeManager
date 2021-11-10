@@ -45,7 +45,22 @@ public class Validation {
                 int result = Integer.parseInt(in.nextLine().trim());
                 if (result < 0 ) {
                     throw new NumberFormatException();
+                }
+                return result;
+            } catch (NumberFormatException e) {
+                System.err.println("Input can't be negetive");
+                System.out.print("Enter again: ");
+            }
+        }
+    }
 
+    public static float checkInputFloat() {
+        //loop until user input correct
+        while (true) {
+            try {
+                float result = Float.parseFloat(in.nextLine().trim());
+                if (result < 0 ) {
+                    throw new NumberFormatException();
                 }
                 return result;
             } catch (NumberFormatException e) {
@@ -81,7 +96,7 @@ public class Validation {
             for (Doctor doctors: ls) {
                 if(doctors.getId().equals(id)){
                     test = false;
-                    System.err.println("Invalid ID: ");
+                    System.err.println("Invalid ID");
                     System.out.print("Re-input ID: ");
                     break;
                 }
@@ -100,7 +115,7 @@ public class Validation {
             for (Nurse nurse: ls) {
                 if(nurse.getId().equals(id)){
                     test = false;
-                    System.err.println("Invalid ID: ");
+                    System.err.println("Invalid ID");
                     System.out.print("Re-input ID: ");
                     break;
                 }
@@ -113,6 +128,8 @@ public class Validation {
 
     //check valid of email format, return true if valid "abc@mail.com" false if ".asds@sfd"
     public static boolean checkEmailFormat(String email) {
+        System.out.println("Format of email: xxx@xxx.xx");
+        System.out.println("(Example: example@gmail.com)");
         String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
         java.util.regex.Matcher m = p.matcher(email);
