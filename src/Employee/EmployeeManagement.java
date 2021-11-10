@@ -61,12 +61,12 @@ public class EmployeeManagement {
     }
 
     public void viewAll(){
-        System.out.println("[-------------------- DOCTOR --------------------]");
+        System.out.println("\t\t\t\t\t\t\t\t\t[-------------------- DOCTOR --------------------]");
         System.out.printf("%-10s%-15s%-20s%-25s%-15s%-11s%-8s%-12s%-10s\n","ID","NAME","PHONE","EMAIL","COEFFICIENT","MAJOR","LEVEL","ALLOWANCE","SALARY");
         for (Doctor y: doctors) {
             y.display();
         }
-        System.out.println("\n\n[-------------------- NURSE ---------------------]");
+        System.out.println("\n\n\t\t\t\t\t\t\t\t\t[-------------------- NURSE ---------------------]");
         System.out.printf("%-10s%-15s%-20s%-25s%-15s%-15s%-12s%-10s\n","ID","NAME","PHONE","EMAIL","COEFFICIENT","DEPARTMENT","OVERTIME","SALARY");
         for (Nurse x: nurses) {
             x.display();
