@@ -53,6 +53,6 @@ public class Doctor extends Employee {
     // print
     public void display() {
         super.display();
-        System.out.printf("%-11s%-6d%-12d%-10f\n",this.major,this.level,this.positionAllowance,calSalary());
+        System.out.printf("%-11s%-8d%-12d%-10f\n",this.major,this.level,this.positionAllowance,calSalary());
     }
 }
