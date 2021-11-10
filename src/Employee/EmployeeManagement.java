@@ -20,13 +20,13 @@ public class EmployeeManagement {
         do{
             phone = sc.nextLine();
         }while(!Validation.checkPhoneAmount(phone));
-        System.out.println("Input mail: ");
+        System.out.print("Input mail: ");
         String email;
         do{
             email = sc.nextLine();
         }while(!Validation.checkEmailFormat(email));
         System.out.print("Input coefficient: ");
-        int coefficient = Validation.checkInputInt();
+        float coefficient = Validation.checkInputFloat();
         System.out.print("Input major: ");
         String major = Validation.checkInputString();
         System.out.print("Input level: ");
@@ -52,7 +52,7 @@ public class EmployeeManagement {
             email = sc.nextLine();
         }while(!Validation.checkEmailFormat(email));
         System.out.println("Input coefficient: ");
-        int coefficient = Validation.checkInputInt();
+        float coefficient = Validation.checkInputFloat();
         System.out.print("Input department: ");
         String department = Validation.checkInputString();
         System.out.print("Input overtime: ");
@@ -61,13 +61,13 @@ public class EmployeeManagement {
     }
 
     public void viewAll(){
-        System.out.println("DOCTOR");
-        System.out.printf("%-10s%-15s%-20s%-20s%-15s%-11s%-6s%-12s%-10s\n","ID","NAME","PHONE","EMAIL","COEFFICIENT","MAJOR","LEVEL","ALLOWANCE","SALARY");
+        System.out.println("[-------------------- DOCTOR --------------------]");
+        System.out.printf("%-10s%-15s%-20s%-25s%-15s%-11s%-8s%-12s%-10s\n","ID","NAME","PHONE","EMAIL","COEFFICIENT","MAJOR","LEVEL","ALLOWANCE","SALARY");
         for (Doctor y: doctors) {
             y.display();
         }
-        System.out.println("NURSE");
-        System.out.printf("%-10s%-15s%-20s%-20s%-15s%-15s%-12s%-10s\n","ID","NAME","PHONE","EMAIL","COEFFICIENT","DEPARTMENT","OVERTIME","SALARY");
+        System.out.println("\n\n[-------------------- NURSE ---------------------]");
+        System.out.printf("%-10s%-15s%-20s%-25s%-15s%-15s%-12s%-10s\n","ID","NAME","PHONE","EMAIL","COEFFICIENT","DEPARTMENT","OVERTIME","SALARY");
         for (Nurse x: nurses) {
             x.display();
         }
